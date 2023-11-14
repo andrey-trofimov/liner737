@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/liner737/static/css/main.f9c205ef.css",
-    "main.js": "/liner737/static/js/main.b9a4e091.js",
+    "main.js": "/liner737/static/js/main.7b2455d3.js",
     "static/js/787.caef9664.chunk.js": "/liner737/static/js/787.caef9664.chunk.js",
     "index.html": "/liner737/index.html",
     "main.f9c205ef.css.map": "/liner737/static/css/main.f9c205ef.css.map",
-    "main.b9a4e091.js.map": "/liner737/static/js/main.b9a4e091.js.map",
+    "main.7b2455d3.js.map": "/liner737/static/js/main.7b2455d3.js.map",
     "787.caef9664.chunk.js.map": "/liner737/static/js/787.caef9664.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f9c205ef.css",
-    "static/js/main.b9a4e091.js"
+    "static/js/main.7b2455d3.js"
   ]
 }
