@@ -50,3 +50,6 @@ export let keyArr = [
 
 // часовая зарплатная ставка
 export let rate = 800;
+
+// гарантия
+export let guarantee = 2000;

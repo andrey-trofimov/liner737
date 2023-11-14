@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./style.scss";
-import { keyArr, rate } from "../../constants/const.js";
+import { keyArr, rate, guarantee } from "../../constants/const.js";
 
 function App() {
   let reader = new FileReader();
@@ -65,7 +65,7 @@ function App() {
         fileData[YYYY][MM] = fileData[YYYY][MM] ? fileData[YYYY][MM] : {};
         fileData[YYYY][MM][DD] = fileData[YYYY][MM][DD] ? fileData[YYYY][MM][DD] : {};
 
-        // считаю ЗП за день
+        // считаю ЗП за день без учета гарантии
         fileData[YYYY][MM][DD].salary = fileData[YYYY][MM][DD].salary ? fileData[YYYY][MM][DD].salary : 0;
         fileData[YYYY][MM][DD].salary += obj.salary;
 
@@ -74,6 +74,16 @@ function App() {
         fileData[YYYY][MM][DD].flights.push(obj);
       }
     });
+
+    // Добавляю гарантию
+    for (let year in fileData) {
+      for (let month in fileData[year]) {
+        for (let day in fileData[year][month]) {
+          let dayMony = fileData[year][month][day].salary;
+          fileData[year][month][day].salary = dayMony > 0 && dayMony < guarantee ? guarantee : dayMony;
+        }
+      }
+    }
 
     setFileData(fileData);
 
@@ -93,7 +103,7 @@ function App() {
 
         {fileData && (
           <h2>
-            {+month + 1}.{year} {employe} {Object.values(fileData[year][month]).reduce((acc, el) => acc + el.salary, 0)} &#8381;
+            {employe} {+month + 1}.{year} - {Object.values(fileData[year][month]).reduce((acc, el) => acc + el.salary, 0)} &#8381;
           </h2>
         )}
 
